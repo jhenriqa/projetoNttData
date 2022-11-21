@@ -4,18 +4,17 @@ package com.nttdata.curso.MinisterioEducacao.service.serviceImpl;
 import com.nttdata.curso.MinisterioEducacao.model.AlunoEntity;
 import com.nttdata.curso.MinisterioEducacao.repository.AlunoRepository;
 import com.nttdata.curso.MinisterioEducacao.service.AlunoService;
-import com.nttdata.curso.MinisterioEducacao.validator.AlunoValidator;
+import com.nttdata.curso.MinisterioEducacao.validator.MinisterioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class AlunoServiceImpl implements AlunoService {
 
     @Autowired
-    private AlunoValidator alunoValidator;
+    private MinisterioValidator valid;
     @Autowired
     public AlunoRepository alunoRepository;
 
@@ -47,7 +46,7 @@ public class AlunoServiceImpl implements AlunoService {
     @Override
     public AlunoEntity validaAluno(AlunoEntity aluno)
     {
-        return alunoValidator.validaAluno(aluno);
+        return valid.validaAluno(aluno);
     }
 
 }

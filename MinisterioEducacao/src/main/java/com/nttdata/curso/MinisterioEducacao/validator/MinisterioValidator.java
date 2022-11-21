@@ -10,19 +10,17 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class AlunoValidator {
+public class MinisterioValidator {
     @Autowired
     private AlunoRepository alunoRepository;
     @Autowired
     private DisciplinaRepository disciplinaRepository;
 
-    public AlunoValidator() {
+    public MinisterioValidator() {
     }
 
     public AlunoEntity validaAluno(AlunoEntity aluno) {
-            if (aluno.getIdade() - aluno.getEscolaridade() != 5 &&
-                    aluno.getIdade() > 6 && aluno.getIdade() < 17 &&
-                    aluno.getEscolaridade() > 1  && aluno.getEscolaridade() > 12) {
+            if (aluno.getIdade() - aluno.getEscolaridade() != 5) {
                 this.alunoRepository.delete(aluno);
                 return null;
             } else {

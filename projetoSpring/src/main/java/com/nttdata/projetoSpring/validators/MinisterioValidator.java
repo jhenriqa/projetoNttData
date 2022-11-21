@@ -11,7 +11,7 @@ import reactor.netty.resources.ConnectionProvider;
 import java.util.Collections;
 
 @Component
-public class AlunoValidator {
+public class MinisterioValidator {
 
     WebClient getMinisterio = WebClient.builder().baseUrl("http://localhost:8082").defaultHeader("Content-Type", new String[]{"application/json"}).defaultUriVariables(Collections.singletonMap("url", "http://localhost:8082")).clientConnector(new ReactorClientHttpConnector(HttpClient.create(ConnectionProvider.newConnection()))).build();
 

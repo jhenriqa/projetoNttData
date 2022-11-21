@@ -4,11 +4,10 @@ package com.nttdata.projetoSpring.services.serviceImpl;
 import com.nttdata.projetoSpring.model.DisciplinaEntity;
 import com.nttdata.projetoSpring.repository.DisciplinaRepository;
 import com.nttdata.projetoSpring.services.DisciplinaService;
-import com.nttdata.projetoSpring.validators.AlunoValidator;
+import com.nttdata.projetoSpring.validators.MinisterioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -17,7 +16,7 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     @Autowired
     public DisciplinaRepository disciplinaRepository;
     @Autowired
-    public AlunoValidator valid;
+    public MinisterioValidator valid;
 
     @Override
     public List<DisciplinaEntity> findAll() {
@@ -29,6 +28,11 @@ public class DisciplinaServiceImpl implements DisciplinaService {
         DisciplinaEntity disciplinaEntity = disciplinaRepository.save(disciplina);
         return valid.validarDisciplina(disciplinaEntity.getId());
 
+    }
+
+    @Override
+    public void saveEdit(DisciplinaEntity disciplina) {
+        DisciplinaEntity disciplinaEntity = disciplinaRepository.save(disciplina);
     }
 
     @Override

@@ -78,6 +78,15 @@ public class AppController {
         }
     }
 
+    @PostMapping("/saveAlunoEdit")
+    public String saveAlunoEdit(@ModelAttribute("aluno") AlunoEntity aluno) {
+        if (alunoService.save(aluno)) {
+            return "redirect:/homepage";
+        } else {
+            return "criarAlunosInvalido";
+        }
+    }
+
     @RequestMapping("/editAluno/{matricula}")
     public ModelAndView showEditAlunoPage(@PathVariable(name = "matricula") String matricula) {
         ModelAndView mav = new ModelAndView("editAluno");
@@ -166,6 +175,12 @@ public class AppController {
 
     @PostMapping("/saveAula")
     public String saveAula(@ModelAttribute("aula") AulaEntity aula) {
+         ProfessorEntity professor = professorService.findProfessorByCpf(aula.getProfessor().getCpf());
+        AlunoEntity aluno = alunoService.findAlunoByMatricula(aula.getAluno().getMatricula());
+
+        aula.setAluno(aluno);
+        aula.setProfessor(professor);
+
         aulaService.save(aula);
         return "redirect:/homepage";
     }
@@ -212,13 +227,21 @@ public class AppController {
     }
 
     @PostMapping("/saveDisciplina")
-    public String saveAula(@ModelAttribute("disciplina") DisciplinaEntity disciplina) {
+    public String saveDisciplina(@ModelAttribute("disciplina") DisciplinaEntity disciplina) {
         if (disciplinaService.save(disciplina)){
             return "redirect:/homepage";
 
         } else {
             return "criarDisciplinaInvalido";
         }
+    }
+
+    @PostMapping("/saveDisciplinaEdit")
+    public String saveDisciplinaEdit(@ModelAttribute("disciplina") DisciplinaEntity disciplina) {
+
+        disciplinaService.saveEdit(disciplina);
+            return "redirect:/homepage";
+
     }
 
     @RequestMapping("/editDisciplina/{id}")

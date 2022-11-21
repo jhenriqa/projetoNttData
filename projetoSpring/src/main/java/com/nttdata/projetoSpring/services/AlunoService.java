@@ -11,5 +11,8 @@ public interface AlunoService extends Serializable {
     AlunoEntity findAlunoByMatricula(String matricula);
     List<AlunoEntity> findAll();
     boolean save(AlunoEntity aluno);
+
+    void saveEdit(AlunoEntity aluno);
+
     void delete(AlunoEntity aluno);
 }

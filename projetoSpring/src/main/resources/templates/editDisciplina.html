@@ -8,12 +8,11 @@
 <div align="center">
   <h1>Editar Disciplina</h1>
   <br />
-  <form action="#" th:action="@{/saveDisciplina}" th:object="${disciplina}"
+  <form action="#" th:action="@{/saveDisciplinaEdit}" th:object="${disciplina}"
         method="post">
 
     <table border="0" cellpadding="10">
       <tr>
-        <td>Id:</td>
         <td><input type="hidden" th:field="*{id}" /></td>
       </tr>
       <tr>

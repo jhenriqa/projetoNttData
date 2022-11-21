@@ -1,16 +1,13 @@
 package com.nttdata.projetoSpring.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "DISCIPLINA")
 @Entity(name = "DISCIPLINA")
 public class DisciplinaEntity {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", nullable=false, length = 8, columnDefinition = "CHAR")
 	private int id;
 

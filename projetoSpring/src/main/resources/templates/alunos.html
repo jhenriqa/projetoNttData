@@ -37,7 +37,9 @@
       <th>Sexo</th>
       <th>Idade</th>
       <th>Pne</th>
+      <th>Escolaridade</th>
       <th>Ações</th>
+
     </tr>
     </thead>
     <tbody>
@@ -48,6 +50,7 @@
       <td th:text="${aluno.sexo}">Cpf</td>
       <td th:text="${aluno.idade}">Cpf</td>
       <td th:text="${aluno.pne}">Pne</td>
+      <td th:text="${aluno.escolaridade}">Escolaridade</td>
 
       <td>
         <a th:href="@{'/editAluno/' + ${aluno.matricula}}">Editar</a>

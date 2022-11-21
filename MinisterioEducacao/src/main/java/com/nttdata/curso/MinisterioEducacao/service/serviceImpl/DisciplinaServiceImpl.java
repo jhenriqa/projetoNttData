@@ -1,15 +1,13 @@
 package com.nttdata.curso.MinisterioEducacao.service.serviceImpl;
 
 
-import com.nttdata.curso.MinisterioEducacao.model.AlunoEntity;
 import com.nttdata.curso.MinisterioEducacao.model.DisciplinaEntity;
 import com.nttdata.curso.MinisterioEducacao.repository.DisciplinaRepository;
 import com.nttdata.curso.MinisterioEducacao.service.DisciplinaService;
-import com.nttdata.curso.MinisterioEducacao.validator.AlunoValidator;
+import com.nttdata.curso.MinisterioEducacao.validator.MinisterioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -18,7 +16,7 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     @Autowired
     public DisciplinaRepository disciplinaRepository;
     @Autowired
-    private AlunoValidator alunoValidator;
+    private MinisterioValidator valid;
 
     @Override
     public List<DisciplinaEntity> findAll() {
@@ -37,7 +35,7 @@ public class DisciplinaServiceImpl implements DisciplinaService {
 
     @Override
     public DisciplinaEntity validaDisciplina(DisciplinaEntity disciplina) {
-            return alunoValidator.validaDisciplina(disciplina);
+            return valid.validaDisciplina(disciplina);
         }
 
     @Override

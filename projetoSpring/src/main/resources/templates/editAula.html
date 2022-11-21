@@ -14,26 +14,27 @@
     <table border="0" cellpadding="10">
       <tr>
         <td>Id:</td>
-        <td><input type="text" th:field="*{id}" /></td>
+        <td><input type="text" th:field="*{id}" readonly="readonly"/></td>
       </tr>
       <tr>
         <td>Aluno:</td>
         <td>
-          <select class="form-control" id="dropDownAlunoList" th:field="*{a.matricula}">
-            <option th:each="a : ${alunoList}" th:value="${a.matricula}" th:text="${a.nome}"></option>
+          <select class="form-control" id="dropDownAlunoList" th:field="*{aluno.matricula}" >
+            <option value="0">Escolha um aluno</option>
+            <option th:each="aluno : ${alunoList}" th:value="${aluno.matricula}" th:text="${aluno.nome}"></option>
           </select>
         </td>
       <tr>
         <td>Professor:</td>
       <td>
         <select class="form-control" id="dropDownProfessorList" th:field="*{professor.cpf}">
-          <option th:each="professor : ${professorList}" th:value="${professor}" th:text="${professor.nome}"></option>
+          <option th:each="professor : ${professorList}" th:value="${professor.cpf}" th:text="${professor.nome}"></option>
         </select>
       </td>
       </tr>
       <tr>
         <td>Data:</td>
-        <td><input type="text" th:field="*{data}" /></td>
+        <td><input type="date" placeholder="dd/mm/yyyy" th:field="*{data}" /></td>
       </tr>
       <tr>
         <td>Média:</td>
