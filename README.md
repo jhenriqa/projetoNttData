@@ -1,6 +1,6 @@
 # projetoNttData
 
-Projeto de consolidação de conhecimentos SpringBoot, RestAPI, JAVA e THYMELEAF
+Projeto para consolidação de conhecimentos SpringBoot, RestAPI, JAVA e THYMELEAF
 
 Conteúdo de auxiliou
 "Como criar um REST API com SpringBoot (tutorial passo a passo)"
