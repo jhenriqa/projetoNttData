@@ -2,14 +2,14 @@
 
 Projeto de consolidação de conhecimentos SpringBoot, RestAPI, JAVA e THYMELEAF
 
-Conteúdo que auxiliou para consulta
-Como criar um REST API com SpringBoot (tutorial passo a passo)
+Conteúdo de auxiliou
+"Como criar um REST API com SpringBoot (tutorial passo a passo)"
 https://www.youtube.com/watch?v=9GWK9A79tEc
 
-Criando uma página com thymeleaf e Spring Boot
+"Criando uma página com thymeleaf e Spring Boot"
 https://www.youtube.com/watch?v=arEf4OXsUXI&t=1517s
 
-ComboBox thymeleaf
+"ComboBox thymeleaf"
 https://www.baeldung.com/thymeleaf-select-option
 
 
