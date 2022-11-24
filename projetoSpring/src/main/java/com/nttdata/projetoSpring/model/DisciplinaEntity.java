@@ -1,6 +1,7 @@
 package com.nttdata.projetoSpring.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "DISCIPLINA")
 @Entity(name = "DISCIPLINA")
@@ -16,7 +17,9 @@ public class DisciplinaEntity {
 
     @Column(name = "area", nullable = false, columnDefinition = "CHAR")
     private String area = "";
-    
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplina")
+    private List<ProfessorEntity> professores;
     
     public String getTitulo() {
         return titulo;
@@ -41,6 +44,12 @@ public class DisciplinaEntity {
 	public void setId(int id) {
 		this.id = id;
 	}
-    
-    
+
+    public List<ProfessorEntity> getProfessores() {
+        return professores;
+    }
+
+    public void setProfessores(List<ProfessorEntity> professores) {
+        this.professores = professores;
+    }
 }

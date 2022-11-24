@@ -32,11 +32,6 @@ public class AlunoServiceImpl implements AlunoService {
    }
 
     @Override
-    public void saveEdit(AlunoEntity aluno) {
-        alunoRepository.save(aluno);
-    }
-
-    @Override
     public void delete(AlunoEntity aluno) {
         alunoRepository.delete(aluno);
     }

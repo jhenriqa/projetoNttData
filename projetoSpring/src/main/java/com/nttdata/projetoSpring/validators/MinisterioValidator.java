@@ -16,6 +16,7 @@ public class MinisterioValidator {
     WebClient getMinisterio = WebClient.builder().baseUrl("http://localhost:8082").defaultHeader("Content-Type", new String[]{"application/json"}).defaultUriVariables(Collections.singletonMap("url", "http://localhost:8082")).clientConnector(new ReactorClientHttpConnector(HttpClient.create(ConnectionProvider.newConnection()))).build();
 
     public boolean validarAluno(String cpf){
+        //Pego no base URL e envio o cpf pra o ministério
         AlunoEntity a = getMinisterio.get().uri("/getAluno/"+ cpf).retrieve().bodyToMono(AlunoEntity.class).block();
 
         if (a != null){

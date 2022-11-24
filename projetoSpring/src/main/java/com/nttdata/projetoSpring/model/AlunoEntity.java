@@ -6,10 +6,8 @@ package com.nttdata.projetoSpring.model;
   o uso de Anottation seria opcional 
   obs: o mesmo vale para @Column*/
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "ALUNO")
 @Entity(name = "ALUNO")
@@ -35,7 +33,10 @@ public class AlunoEntity {
 
 	private Integer escolaridade;
 
-	Integer idade;
+	private Integer idade;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+	private List<AulaEntity> aulas;
 
 	public String getMatricula() {
 		return matricula;
@@ -91,5 +92,13 @@ public class AlunoEntity {
 
 	public void setEscolaridade(Integer escolaridade) {
 		this.escolaridade = escolaridade;
+	}
+
+	public List<AulaEntity> getAulas() {
+		return aulas;
+	}
+
+	public void setAulas(List<AulaEntity> aulas) {
+		this.aulas = aulas;
 	}
 }

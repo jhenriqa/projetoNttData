@@ -2,6 +2,7 @@ package com.nttdata.projetoSpring.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Table(name = "PROFESSOR")
 @Entity(name = "PROFESSOR")
@@ -22,6 +23,9 @@ public class ProfessorEntity  {
 
     @Column(name = "tempo_ensino", columnDefinition = "CHAR")
     private int tempoEnsino;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+    private List<AulaEntity> aulas;
 
     @ManyToOne
     @JoinColumn(name = "disciplina_id", nullable = false)
@@ -84,5 +88,13 @@ public class ProfessorEntity  {
 
     public void setSalario(BigDecimal salario) {
         this.salario = salario;
+    }
+
+    public List<AulaEntity> getAulas() {
+        return aulas;
+    }
+
+    public void setAulas(List<AulaEntity> aulas) {
+        this.aulas = aulas;
     }
 }

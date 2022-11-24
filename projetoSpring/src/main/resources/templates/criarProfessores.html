@@ -15,7 +15,7 @@
     <table border="0" cellpadding="10">
       <tr>
         <td>Cpf:</td>
-        <td><input type="text" th:field="*{cpf}" /></td>
+        <td><input type="text" maxlength="9" th:field="*{cpf}" /></td>
       </tr>
       <tr>
         <td>Nome:</td>
@@ -26,8 +26,14 @@
         <td><input type="text" th:field="*{idade}" /></td>
       </tr>
       <tr>
-        <td>Sexo:</td>
-        <td><input type="text" th:field="*{sexo}" /></td>
+        <td>Sexo :</td>
+        <td>
+          <select id="dropDownSexList" th:field="*{sexo}" >
+            <option value="">Escolha um Sexo</option>
+            <option value="M">M</option>
+            <option value="F">F</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td>Tempo de Ensino :</td>

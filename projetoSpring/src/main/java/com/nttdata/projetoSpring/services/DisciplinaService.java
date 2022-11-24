@@ -13,7 +13,5 @@ public interface DisciplinaService extends Serializable {
 
     boolean save(DisciplinaEntity disciplina);
 
-    void saveEdit(DisciplinaEntity disciplina);
-
     void delete(DisciplinaEntity disciplina);
 }

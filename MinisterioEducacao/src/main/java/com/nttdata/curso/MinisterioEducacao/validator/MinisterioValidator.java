@@ -31,8 +31,10 @@ public class MinisterioValidator {
     public DisciplinaEntity validaDisciplina(DisciplinaEntity disciplinaEntity) {
         List<DisciplinaEntity> disciplinaList = disciplinaRepository.findAll();
 
+
         for (DisciplinaEntity disciplina : disciplinaList) {
-            if (disciplina.getTitulo().equals(disciplinaEntity.getTitulo()) && disciplina.getArea().equals(disciplinaEntity.getArea())) {
+
+            if (disciplina.getId() != disciplinaEntity.getId() && disciplina.getTitulo().equals(disciplinaEntity.getTitulo()) && disciplina.getArea().equals(disciplinaEntity.getArea())) {
                 this.disciplinaRepository.delete(disciplinaEntity);
                 return null;
             }

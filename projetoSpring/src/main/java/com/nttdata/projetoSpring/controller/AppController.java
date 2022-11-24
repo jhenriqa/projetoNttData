@@ -13,9 +13,18 @@ import java.util.List;
 
 @Controller
 public class AppController {
-
+    //Anotação que realizará a injeção de dependencias
     @Autowired
     private AlunoService alunoService;
+
+    /*
+     Caso fizessemos com bean seria c/Construtor
+     @Bean
+     public ProfessorService professorService() {
+        return new ProfessorService();
+    }
+    */
+
     @Autowired
     private ProfessorService professorService;
     @Autowired
@@ -71,15 +80,6 @@ public class AppController {
 
     @PostMapping("/saveAluno")
     public String saveAluno(@ModelAttribute("aluno") AlunoEntity aluno) {
-        if (alunoService.save(aluno)) {
-            return "redirect:/homepage";
-        } else {
-            return "criarAlunosInvalido";
-        }
-    }
-
-    @PostMapping("/saveAlunoEdit")
-    public String saveAlunoEdit(@ModelAttribute("aluno") AlunoEntity aluno) {
         if (alunoService.save(aluno)) {
             return "redirect:/homepage";
         } else {
@@ -234,14 +234,6 @@ public class AppController {
         } else {
             return "criarDisciplinaInvalido";
         }
-    }
-
-    @PostMapping("/saveDisciplinaEdit")
-    public String saveDisciplinaEdit(@ModelAttribute("disciplina") DisciplinaEntity disciplina) {
-
-        disciplinaService.saveEdit(disciplina);
-            return "redirect:/homepage";
-
     }
 
     @RequestMapping("/editDisciplina/{id}")

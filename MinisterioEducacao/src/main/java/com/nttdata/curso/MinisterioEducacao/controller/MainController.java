@@ -17,16 +17,6 @@ public class MainController {
     @Autowired
     private DisciplinaService disciplinaService;
 
-/*    @RequestMapping(path = "/disciplina", method = RequestMethod.GET)
-    public List<DisciplinaEntity> getAllDisciplinas(){
-        return disciplinaService.getAllDisciplinas();
-    }*/
-
-   /* @RequestMapping(path = "/postAluno/{id}", method = RequestMethod.POST)
-    public Aluno postAluno(@RequestBody Aluno aluno){
-        return alunoService.postAluno(aluno);
-    }*/
-
     @RequestMapping(path = "/getAluno/{cpf}", method = RequestMethod.GET)
     public AlunoEntity validaAluno(@PathVariable String cpf){
         return alunoService.validaAluno(alunoService.findAlunoByCpf(cpf));
