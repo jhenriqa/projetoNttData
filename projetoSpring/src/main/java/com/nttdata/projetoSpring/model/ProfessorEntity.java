@@ -24,11 +24,11 @@ public class ProfessorEntity  {
     @Column(name = "tempo_ensino", columnDefinition = "CHAR")
     private int tempoEnsino;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "professor")
+    @OneToMany(fetch = FetchType.LAZY,  cascade = CascadeType.PERSIST, mappedBy = "professor")
     private List<AulaEntity> aulas;
 
     @ManyToOne
-    @JoinColumn(name = "disciplina_id", nullable = false)
+    @JoinColumn(name = "disciplina_id", nullable = true)
     private DisciplinaEntity disciplina;
 
     @Column(name = "salario", columnDefinition = "CHAR")

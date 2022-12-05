@@ -18,7 +18,7 @@ public class DisciplinaEntity {
     @Column(name = "area", nullable = false, columnDefinition = "CHAR")
     private String area = "";
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "disciplina")
+    @OneToMany(fetch = FetchType.LAZY)
     private List<ProfessorEntity> professores;
     
     public String getTitulo() {

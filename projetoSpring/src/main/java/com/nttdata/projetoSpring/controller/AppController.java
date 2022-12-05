@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -247,6 +248,18 @@ public class AppController {
     @RequestMapping("/deleteDisciplina/{id}")
     public String deleteDisciplina(@PathVariable(name = "id") Integer id) {
         DisciplinaEntity disciplina = disciplinaService.findDisciplinaById(id);
+
+        List<ProfessorEntity> professores = professorService.findByDisciplina(disciplina);
+
+        for (ProfessorEntity professor: professores) {
+                professor.setDisciplina(null);
+        }
+
+        professorService.saveAll(professores);
+
+        disciplina.setProfessores(null);
+
+
         disciplinaService.delete(disciplina);
         return "redirect:/homepage";
     }

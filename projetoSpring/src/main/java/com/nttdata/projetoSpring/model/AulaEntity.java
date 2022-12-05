@@ -16,11 +16,11 @@ public class AulaEntity {
 	@Column(name="id", nullable=false, length = 8, columnDefinition = "CHAR")
 	private int id;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "professor_cpf", columnDefinition = "CHAR")
 	private ProfessorEntity professor;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "aluno_matricula", columnDefinition = "CHAR")
 	private AlunoEntity aluno;
 

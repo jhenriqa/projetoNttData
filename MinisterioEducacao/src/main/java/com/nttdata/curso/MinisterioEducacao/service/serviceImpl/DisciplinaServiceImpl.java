@@ -37,7 +37,10 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     public DisciplinaEntity validaDisciplina(DisciplinaEntity disciplina) {
             return valid.validaDisciplina(disciplina);
         }
-
+    @Override
+    public  List<DisciplinaEntity> findByAreaAndTitulo(String area, String titulo){
+        return disciplinaRepository.findByAreaAndTitulo(area, titulo);
+    }
     @Override
     public DisciplinaEntity findDisciplinaById(Integer id){
         return disciplinaRepository.findDisciplinaById(id);

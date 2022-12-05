@@ -1,6 +1,7 @@
 package com.nttdata.projetoSpring.services.serviceImpl;
 
 
+import com.nttdata.projetoSpring.model.DisciplinaEntity;
 import com.nttdata.projetoSpring.model.ProfessorEntity;
 import com.nttdata.projetoSpring.repository.ProfessorRepository;
 import com.nttdata.projetoSpring.services.ProfessorService;
@@ -27,6 +28,10 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
 
     @Override
+    public void saveAll(List<ProfessorEntity> professores) {
+        professorRepository.saveAll(professores);
+    }
+    @Override
     public void update(ProfessorEntity professor) {
         professorRepository.save(professor);
     }
@@ -40,4 +45,9 @@ public class ProfessorServiceImpl implements ProfessorService {
     public ProfessorEntity findProfessorByCpf(String cpf) {
         return professorRepository.findProfessorByCpf(cpf);
     }
+    @Override
+    public List<ProfessorEntity> findByDisciplina(DisciplinaEntity disciplina) {
+        return professorRepository.findByDisciplina(disciplina);
+    }
+
 }

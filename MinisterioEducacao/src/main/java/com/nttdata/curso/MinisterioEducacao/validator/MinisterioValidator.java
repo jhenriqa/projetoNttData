@@ -29,16 +29,16 @@ public class MinisterioValidator {
     }
 
     public DisciplinaEntity validaDisciplina(DisciplinaEntity disciplinaEntity) {
-        List<DisciplinaEntity> disciplinaList = disciplinaRepository.findAll();
-
+       List<DisciplinaEntity> disciplinaList = disciplinaRepository.findByAreaAndTitulo(disciplinaEntity.getTitulo(), disciplinaEntity.getArea());
 
         for (DisciplinaEntity disciplina : disciplinaList) {
-
-            if (disciplina.getId() != disciplinaEntity.getId() && disciplina.getTitulo().equals(disciplinaEntity.getTitulo()) && disciplina.getArea().equals(disciplinaEntity.getArea())) {
+            if (disciplina != null && disciplina.getId() != disciplinaEntity.getId()) {
                 this.disciplinaRepository.delete(disciplinaEntity);
                 return null;
             }
         }
+
+
         return disciplinaEntity;
     }
 

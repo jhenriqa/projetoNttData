@@ -11,6 +11,7 @@ public interface DisciplinaService extends Serializable {
     public DisciplinaEntity validaDisciplina(DisciplinaEntity disciplina);
     DisciplinaEntity findDisciplinaById(Integer id);
     List<DisciplinaEntity> findAll();
+    List<DisciplinaEntity> findByAreaAndTitulo(String area, String titulo);
 
     void save(DisciplinaEntity disciplina);
 

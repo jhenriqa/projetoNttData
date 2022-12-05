@@ -26,6 +26,7 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     @Override
     public boolean save(DisciplinaEntity disciplina) {
         DisciplinaEntity disciplinaEntity = disciplinaRepository.save(disciplina);
+
         return valid.validarDisciplina(disciplinaEntity.getId());
     }
 

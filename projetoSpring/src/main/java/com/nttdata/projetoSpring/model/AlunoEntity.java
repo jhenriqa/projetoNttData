@@ -35,7 +35,7 @@ public class AlunoEntity {
 
 	private Integer idade;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "aluno")
 	private List<AulaEntity> aulas;
 
 	public String getMatricula() {
